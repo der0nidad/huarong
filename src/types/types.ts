@@ -10,6 +10,7 @@ export interface Point {
   y: number;
 }
 export interface FigureData {
+  id: string;
   type: FigureType;
   plt: Point; // point Left Top
   prb: Point; // point Right Bottom

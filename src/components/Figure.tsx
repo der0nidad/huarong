@@ -5,9 +5,10 @@ import { FigureData } from '../types/types';
 export interface FigureProps {
   figure: FigureData;
 }
-const Figure: React.VFC<FigureProps> = ({ figure }) => {
+const Figure: React.VFC<FigureProps & React.HTMLProps<HTMLElement>> = ({ figure }) => {
   return (
     <div
+      id={`${figure.id}`}
       css={{
         backgroundColor: 'hotpink',
         '&:hover': {
