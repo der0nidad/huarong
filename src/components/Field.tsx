@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/reducer';
 import Figure from './Figure';
@@ -36,7 +36,6 @@ const Field = () => {
   };
   const handleFigureMove =
     (figure: FigureData | null) => (event: React.MouseEvent<HTMLElement>) => {
-      console.log(currentDragFig, figure?.id);
       if (currentDragFig) {
         dispatch(
           moveFigure({
@@ -51,6 +50,11 @@ const Field = () => {
       }
     };
 
+  useEffect(() => {
+    document.body.addEventListener('mouseup', () => {
+      setDragFig(null);
+    });
+  }, []);
   return (
     <div
       css={{

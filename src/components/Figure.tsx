@@ -23,7 +23,7 @@ const Figure: React.VFC<FigureProps & React.HTMLProps<HTMLElement>> = ({ figure 
         top: `${figure.plt.y}px`,
         left: `${figure.plt.x}px`,
       }}>
-      {JSON.stringify(figure)}
+      {figure.id}
     </div>
   );
 };
